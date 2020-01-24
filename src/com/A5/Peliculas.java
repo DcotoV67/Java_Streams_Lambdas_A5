@@ -1,5 +1,7 @@
 package com.A5;
 
+import java.util.Objects;
+
 public class Peliculas implements Comparable<Peliculas>{
 
     String idfilm;
@@ -127,5 +129,18 @@ public class Peliculas implements Comparable<Peliculas>{
     @Override
     public int compareTo(Peliculas pelis) {
         return this.any.compareTo(pelis.any);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Peliculas peliculas = (Peliculas) o;
+        return i_original.equals(peliculas.i_original);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(i_original);
     }
 }
